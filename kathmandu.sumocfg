@@ -1,0 +1,43 @@
+<configuration>
+
+    <input>
+        <net-file value="kathmandu.net.xml"/>
+        <route-files value="routes.rou.xml"/>
+        <!-- Realistic basemap polygons created by polyconvert -->
+        <additional-files value="ktm_background.poly.xml"/>
+    </input>
+
+    <time>
+        <!-- Start at 0 -->
+        <begin value="0"/>
+        <!-- End at 1 hour -->
+        <end value="3600"/>
+        <!-- SPEED UP SIMULATION: process multiple steps per real-time frame -->
+        <step-length value="0.2"/>
+        <!-- Smaller step-length = smoother, faster animation (default is 1.0) -->
+    </time>
+
+    <!-- Enable automatic rerouting -->
+    <routing>
+        <!-- Give every vehicle rerouting ability -->
+        <device.rerouting.probability value="1.0"/>
+        <!-- Recalculate route every 10 real seconds (lighter on CPU = faster) -->
+        <device.rerouting.period value="10"/>
+        <!-- Shortest path algorithm -->
+        <routing-algorithm value="dijkstra"/>
+    </routing>
+
+    <gui_only>
+        <!-- Start GUI immediately -->
+        <start value="true"/>
+        <!-- Make vehicles look more frequent visually -->
+        <scale value="2.0"/>
+    </gui_only>
+
+    <output>
+        <!-- Floating car data output file -->
+        <fcd-output value="fcd.xml"/>
+        <!-- ⚠️ DO **NOT** add any fcd-output.period here -->
+    </output>
+
+</configuration>
